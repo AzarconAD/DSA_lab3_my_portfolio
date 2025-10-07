@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Circle Area{% endblock %}
+{% block content %}
+    <!--Area for Circle-->
+    <h1>Area of Circle</h1>
+    <form action="/works/areaCircle" method="post">
+        <label for="radius">Enter radius:</label>
+        <input type="text" id="radius" name="radius">
+        <button type="submit">Compute</button>
+    </form>
+
+    {% if result %}
+        <p>Area: {{ result }}</p>
+    {% endif %}
+{% endblock %}

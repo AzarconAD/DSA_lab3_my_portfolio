@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Triangle Area{% endblock %}
+{% block content %}
+    <!--Area for Triangle-->
+    <h1>Area of Triangle</h1>
+    <form action="/works/areaTriangle" method="post">
+        <label for="base">Enter base:</label>
+        <input type="text" id="base" name="base">
+        <label for="height">Enter height:</label>
+        <input type="text" id="height" name="height">
+        <button type="submit">Compute</button>
+    </form>
+
+    {% if result %}
+        <p>Area: {{ result }}</p>
+    {% endif %}
+{% endblock %}

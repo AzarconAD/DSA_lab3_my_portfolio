@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}To Uppercase{% endblock %}
+{% block content %}
+
+    <h1>Convert Text to UPPERCASE</h1>
+    <form action="/works/toUpperCase" method="post">
+        <label for="inputString">Enter text:</label>
+        <input type="text" id="inputString" name="inputString">
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <p>Converted Text: {{ result }}</p>
+    {% endif %}
+{% endblock %}
