@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Document{% endblock%}</title>
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/profile">About Me</a>
-            <a href="/works">Projects</a>
-            <a href="/contact">Contact me</a>
-        </nav>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h2>AD</h2>
+            </div>
+            <nav class="nav-links">
+                <a href="/" class="nav-item">Home</a>
+                <a href="/profile" class="nav-item">About Me</a>
+                <a href="/works" class="nav-item">Projects</a>
+                <a href="/contact" class="nav-item">Contact Me</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer class="footer">
+        <p>© 2025 Adam Daniel Azarcon | Computer Engineer Portfolio</p>
+    </footer>
 </body>
 </html>

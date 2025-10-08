@@ -1,10 +1,27 @@
 {% extends "base.html" %}
-{% block title %}
-AD's Projects
-{% endblock title %}
+
+{% block title %}AD's Projects{% endblock title %}
+
 {% block content %}
-<h1>My Projects</h1>
-<a href="/works/toUpperCase">Uppercase Text</a>
-<a href="/works/areaCircle">Circle Area Calculator</a>
-<a href="/works/areaTriangle">Triangle Area Calculator</a>
+<section class="projects-section">
+    <h1>My Projects</h1>
+    <p class="intro-text">Here are some of the projects I have built as part of my learning in Computer Engineering.</p>
+
+    <div class="projects-list">
+        <a href="/works/toUpperCase" class="project-card">
+            <h3>Uppercase Text Converter</h3>
+            <p>A simple tool that converts user input into uppercase letters.</p>
+        </a>
+
+        <a href="/works/areaCircle" class="project-card">
+            <h3>Circle Area Calculator</h3>
+            <p>Calculates the area of a circle based on a given radius.</p>
+        </a>
+
+        <a href="/works/areaTriangle" class="project-card">
+            <h3>Triangle Area Calculator</h3>
+            <p>Finds the area of a triangle using base and height values.</p>
+        </a>
+    </div>
+</section>
 {% endblock content %}

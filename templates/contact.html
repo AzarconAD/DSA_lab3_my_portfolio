@@ -1,21 +1,39 @@
 {% extends "base.html" %}
-{% block title %}
-Contact AD
-{% endblock title %}
+
+{% block title %}Contact AD{% endblock title %}
+
 {% block content %}
-<h1>Contact Me:</h1>
-    <ul>
-        <div>adamdaniel2801@gmail.com</div>
-        <div>09123456789</div>
-        <div>
-            <a href="https://github.com/AzarconAD">GitHub</a>
+<section class="contact-section">
+    <h1>Contact Me</h1>
+    <p class="contact-intro">You can reach me through the following platforms:</p>
+
+    <div class="contact-info">
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p>adamdaniel2801@gmail.com</p>
         </div>
-        <div>
-            <a href="https://www.linkedin.com/in/adam-daniel-azarcon-009605369">LinkedIn</a>
+
+        <div class="contact-item">
+            <h3>Phone</h3>
+            <p>09123456789</p>
         </div>
-        <div>
-            <a href="https://www.facebook.com/ad.azrcn">Facebook</a>
+
+        <div class="contact-item">
+            <h3>GitHub</h3>
+            <a href="https://github.com/AzarconAD" target="_blank">github.com/AzarconAD</a>
         </div>
-    </ul>
-   
+
+        <div class="contact-item">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/adam-daniel-azarcon-009605369" target="_blank">
+                linkedin.com/in/adam-daniel-azarcon-009605369
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <h3>Facebook</h3>
+            <a href="https://www.facebook.com/ad.azrcn" target="_blank">facebook.com/ad.azrcn</a>
+        </div>
+    </div>
+</section>
 {% endblock content %}
