@@ -301,3 +301,105 @@ body {
     padding: 1.5rem;
   }
 }
+
+body {
+    background-color: #f8faff;
+    color: #0a1a2f;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0a4da3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.project-link {
+    background-color: #e8f1ff;
+    color: #0a4da3;
+    border: 1px solid #0a4da3;
+    padding: 10px 25px;
+    margin: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    width: 250px;
+    transition: 0.2s;
+}
+
+.project-link:hover {
+    background-color: #0a4da3;
+    color: white;
+}
+
+.converter-box {
+    background: white;
+    padding: 25px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.converter-box input {
+    padding: 10px;
+    width: 250px;
+    margin: 10px 0;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+}
+
+.converter-box button {
+    padding: 10px 25px;
+    background-color: #0a4da3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.converter-box button:hover {
+    background-color: #083d85;
+}
+
+.result {
+    margin-top: 20px;
+    background-color: #e8f1ff;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.contact p, .contact a {
+    color: #0a1a2f;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #0a4da3;
+    text-decoration: underline;
+}
