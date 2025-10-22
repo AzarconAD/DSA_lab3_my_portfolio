@@ -7,15 +7,24 @@ Infix to Postfix Converter
 
 <div class="converter-box">
     <form method="POST">
-        <label for="expression">Enter Expression:</label>
-        <input type="text" id="expression" name="expression" required placeholder="Example: A*(B+C)">
+        <label for="expression">Enter Infix Expression:</label>
+        <input type="text" id="expression" name="expression" required 
+               placeholder="Example: A*(B+C)" 
+               pattern="[a-zA-Z0-9+\-*/%^() ]+" 
+               title="Only letters, numbers, and operators (+, -, *, /, %, ^, (, )) allowed">
         <button type="submit">Convert</button>
     </form>
 
-    {% if infix and postfix %}
+    {% if infix %}
     <div class="result">
-        <p><strong>Infix:</strong> {{ infix }}</p>
-        <p><strong>Postfix:</strong> {{ postfix }}</p>
+        <p><strong>Infix:</strong> <code>{{ infix }}</code></p>
+        <p><strong>Postfix:</strong> <code>{{ postfix }}</code></p>
+    </div>
+    {% endif %}
+    
+    {% if error %}
+    <div class="error">
+        <p>{{ error }}</p>
     </div>
     {% endif %}
 </div>

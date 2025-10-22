@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Music Playlist{% endblock %}
+
+{% block content %}
+<section class="playlist-section">
+    <div class="playlist-header">
+        <h1>🎵 My Music Playlist</h1>
+        <p class="playlist-stats">Total Songs: {{ playlist_size }} | Built with Linked List</p>
+    </div>
+
+    <div class="playlist-container">
+        <!-- Current Song Display -->
+        <div class="current-song-card">
+            <div class="now-playing">Now Playing</div>
+            {% if current_song %}
+            <h2 class="current-title">{{ current_song.title }}</h2>
+            <p class="current-artist">{{ current_song.artist }}</p>
+            <p class="current-duration">{{ current_song.duration }}</p>
+            {% else %}
+            <p class="no-song">No song selected</p>
+            {% endif %}
+        </div>
+
+        <!-- Player Controls -->
+        <div class="player-controls">
+            <button id="prevBtn" class="control-btn">⏮ Previous</button>
+            <button id="nextBtn" class="control-btn">Next ⏭</button>
+        </div>
+
+        <!-- Add New Song Form -->
+        <div class="add-song-form">
+            <h3>Add New Song</h3>
+            <form id="addSongForm">
+                <div class="form-group">
+                    <input type="text" id="title" name="title" placeholder="Song Title" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="artist" name="artist" placeholder="Artist" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="duration" name="duration" placeholder="Duration (e.g., 3:45)" required>
+                </div>
+                <button type="submit" class="add-btn">Add Song to Playlist</button>
+            </form>
+        </div>
+
+        <!-- Playlist Songs -->
+        <div class="songs-list">
+            <h3>Playlist Songs</h3>
+            <div class="songs-header">
+                <span>#</span>
+                <span>Title</span>
+                <span>Artist</span>
+                <span>Duration</span>
+            </div>
+            <div class="songs-container">
+                {% for song in songs %}
+                <div class="song-item {% if song.is_current %}current{% endif %}">
+                    <span class="song-index">{{ song.index }}</span>
+                    <span class="song-title">{{ song.title }}</span>
+                    <span class="song-artist">{{ song.artist }}</span>
+                    <span class="song-duration">{{ song.duration }}</span>
+                    {% if song.is_current %}
+                    <span class="playing-indicator">▶️ Playing</span>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Next song functionality
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        fetch('/works/playlist/next', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            location.reload(); // Refresh to update display
+        });
+    });
+
+    // Previous song functionality
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        fetch('/works/playlist/previous', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            location.reload(); // Refresh to update display
+        });
+    });
+
+    // Add song functionality
+    document.getElementById('addSongForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch('/works/playlist/add', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload(); // Refresh to show new song
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adam Daniel Azarcon - Computer Engineering Portfolio">
     <title>{% block title %}My Portfolio{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -12,7 +13,7 @@
             <div class="logo">
                 <h2>AD</h2>
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" role="navigation" aria-label="Main navigation">
                 <a href="/" class="nav-item">Home</a>
                 <a href="/profile" class="nav-item">About Me</a>
                 <a href="/works" class="nav-item">Projects</a>
@@ -21,7 +22,7 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" role="main">
         {% block content %}
         {% endblock %}
     </main>

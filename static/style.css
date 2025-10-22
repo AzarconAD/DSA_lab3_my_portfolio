@@ -1,10 +1,17 @@
+/* ===== RESET AND BASE STYLES ===== */
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   background-color: #f8fbff;
   color: #1a1a1a;
+  line-height: 1.6;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* ===== LAYOUT STYLES ===== */
 /* Header */
 .navbar {
   background-color: #004aad;
@@ -47,11 +54,17 @@ body {
   border-bottom: 2px solid #a3d0ff;
 }
 
+.nav-item:focus {
+  outline: 2px solid #a3d0ff;
+  outline-offset: 2px;
+}
+
 /* Main content */
 .main-content {
   max-width: 1000px;
   margin: 3rem auto;
   padding: 2rem;
+  min-height: 70vh;
 }
 
 /* Footer */
@@ -64,27 +77,109 @@ body {
   margin-top: 3rem;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
+/* ===== COMPONENT STYLES ===== */
+/* Form Styles */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-body {
-  background-color: #f5f7fb;
-  color: #1a1a1a;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #004aad;
+  font-weight: 500;
 }
 
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e1e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #004aad;
+}
+
+button[type="submit"] {
+  background-color: #004aad;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #003580;
+}
+
+button[type="submit"]:focus {
+  outline: 2px solid #004aad;
+  outline-offset: 2px;
+}
+
+/* Result and Error Styles */
+.result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f0f7ff;
+  border-left: 4px solid #004aad;
+  border-radius: 6px;
+}
+
+.result p {
+  margin: 0.5rem 0;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ffe6e6;
+  border-left: 4px solid #dc2626;
+  border-radius: 6px;
+  color: #dc2626;
+}
+
+/* Code Display */
+code {
+  background-color: #f8fafc;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  font-family: 'Courier New', monospace;
+  color: #1a202c;
+}
+
+/* Technology Badges */
+.tech-badge {
+  display: inline-block;
+  background-color: #e8f1ff;
+  color: #004aad;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== PAGE-SPECIFIC STYLES ===== */
+/* About/Profile Page */
 .about-section {
   max-width: 900px;
   margin: 3rem auto;
@@ -138,15 +233,7 @@ body {
   border-bottom: none;
 }
 
-@media (max-width: 768px) {
-  .about-section {
-    padding: 1.5rem;
-  }
-  .about-header h1 {
-    font-size: 1.6rem;
-  }
-}
-
+/* Home Page */
 .home-section {
   max-width: 900px;
   margin: 3rem auto;
@@ -181,15 +268,7 @@ body {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
-  .home-section {
-    padding: 1.5rem;
-  }
-  .home-header h1 {
-    font-size: 1.6rem;
-  }
-}
-
+/* Projects Page */
 .projects-section {
   max-width: 900px;
   margin: 3rem auto;
@@ -245,11 +324,12 @@ body {
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .projects-section {
-    padding: 1.5rem;
-  }
+.project-card:focus {
+  outline: 2px solid #004aad;
+  outline-offset: 2px;
 }
+
+/* Contact Page */
 .contact-section {
   max-width: 800px;
   margin: 3rem auto;
@@ -278,6 +358,18 @@ body {
   gap: 1.2rem;
 }
 
+.contact-item {
+  background-color: #f8faff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #004aad;
+  transition: transform 0.2s;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
 .contact-item h3 {
   color: #004aad;
   margin-bottom: 0.3rem;
@@ -296,110 +388,381 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 1.5rem;
-  }
+.email-obfuscated {
+  font-family: monospace;
+  letter-spacing: 1px;
 }
 
-body {
-    background-color: #f8faff;
-    color: #0a1a2f;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #0a4da3;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 0 12px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 40px;
-    text-align: center;
-}
-
-.projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.project-link {
-    background-color: #e8f1ff;
-    color: #0a4da3;
-    border: 1px solid #0a4da3;
-    padding: 10px 25px;
-    margin: 8px 0;
-    border-radius: 8px;
-    text-decoration: none;
-    width: 250px;
-    transition: 0.2s;
-}
-
-.project-link:hover {
-    background-color: #0a4da3;
-    color: white;
-}
-
+/* Converter Box (Infix to Postfix) */
 .converter-box {
-    background: white;
-    padding: 25px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 30px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .converter-box input {
-    padding: 10px;
-    width: 250px;
-    margin: 10px 0;
-    border: 1px solid #94a3b8;
-    border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
 .converter-box button {
-    padding: 10px 25px;
-    background-color: #0a4da3;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+  padding: 10px 25px;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 .converter-box button:hover {
-    background-color: #083d85;
+  background-color: #003580;
 }
 
-.result {
-    margin-top: 20px;
-    background-color: #e8f1ff;
-    padding: 15px;
+.converter-box button:focus {
+  outline: 2px solid #004aad;
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .about-section,
+  .home-section,
+  .projects-section,
+  .contact-section {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+  
+  .about-header h1,
+  .home-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .converter-box {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .project-card:hover,
+  .contact-item:hover {
+    transform: none;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .navbar,
+  .footer {
+    display: none;
+  }
+  
+  .main-content {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .about-section,
+  .home-section,
+  .projects-section,
+  .contact-section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    margin: 0;
+  }
+  
+  .project-card,
+  .contact-item {
+    break-inside: avoid;
+  }
+}
+
+/* ===== PLAYLIST STYLES ===== */
+.playlist-section {
+    max-width: 900px;
+    margin: 3rem auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.playlist-header {
+    text-align: center;
+    border-bottom: 3px solid #0074d9;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.playlist-header h1 {
+    color: #004aad;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.playlist-stats {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Current Song Card */
+.current-song-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.now-playing {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.current-title {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.current-artist {
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+    opacity: 0.9;
+}
+
+.current-duration {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.no-song {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.control-btn {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 74, 173, 0.2);
+}
+
+.control-btn:hover {
+    background-color: #003580;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 74, 173, 0.3);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+/* Add Song Form */
+.add-song-form {
+    background-color: #f8faff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #004aad;
+}
+
+.add-song-form h3 {
+    color: #004aad;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e1e8f0;
     border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
 }
 
-.contact p, .contact a {
-    color: #0a1a2f;
-    text-decoration: none;
+.form-group input:focus {
+    outline: none;
+    border-color: #004aad;
 }
 
-.contact a:hover {
-    color: #0a4da3;
-    text-decoration: underline;
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* Songs List */
+.songs-list h3 {
+    color: #004aad;
+    margin-bottom: 1rem;
+}
+
+.songs-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 80px 100px;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #004aad;
+    color: white;
+    border-radius: 6px 6px 0 0;
+    font-weight: bold;
+}
+
+.songs-container {
+    border: 1px solid #e1e8f0;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+}
+
+.song-item {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 80px 100px;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e1e8f0;
+    transition: background-color 0.3s;
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.song-item:hover {
+    background-color: #f8faff;
+}
+
+.song-item.current {
+    background-color: #e7f1ff;
+    border-left: 4px solid #004aad;
+}
+
+.song-index {
+    font-weight: bold;
+    color: #666;
+}
+
+.song-title {
+    font-weight: 500;
+}
+
+.song-artist {
+    color: #666;
+}
+
+.song-duration {
+    color: #666;
+    text-align: center;
+}
+
+.playing-indicator {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design for Playlist */
+@media (max-width: 768px) {
+    .playlist-section {
+        padding: 1.5rem;
+    }
+    
+    .songs-header,
+    .song-item {
+        grid-template-columns: 40px 1fr 1fr;
+        gap: 0.5rem;
+    }
+    
+    .songs-header span:nth-child(4),
+    .songs-header span:nth-child(5),
+    .song-item .song-duration,
+    .song-item .playing-indicator {
+        display: none;
+    }
+    
+    .player-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .current-title {
+        font-size: 1.4rem;
+    }
+    
+    .current-artist {
+        font-size: 1rem;
+    }
 }
